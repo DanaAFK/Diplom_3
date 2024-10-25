@@ -8,37 +8,37 @@ from selenium.webdriver.common.by import By
 
 class RenewPage(BasePage):
 
-    @allure.step('Открытие страницы "Восстановление пароля"')
+    @allure.title('Открыть урлом страницу "Восстановление пароля"')
     def open_forgot_password_page(self):
         self.open_page(f'{Data.URL}{Data.FORGOT_PASSWORD}')
 
-    @allure.step('Получение заголовка')
+    @allure.title('Лого')
     def title_check(self):
         return self.exist_check((By.XPATH, RenLoc.RENEW_PASSWORD_LOGO))
 
-    @allure.step('Ввод данных в поле ввода "Email"')
+    @allure.title('Ввод данных в поле ввода "Email"')
     def input_email(self, reference):
         self.wait_and_text((By.XPATH, RenLoc.EMAIL), reference['email'])
 
-    @allure.step('Проверка наличия поля ввода "Пароль"')
+    @allure.title('Наличия поля ввода "Пароль"')
     def exist_password_field_check(self):
         return self.exist_check((By.XPATH, RenLoc.NEW_PASSWORD))
 
-    @allure.step('Ввод данных в поле "Пароль"')
+    @allure.title('Ввод данных в поле "Пароль"')
     def input_password(self, reference):
         self.wait_and_text((By.XPATH, RenLoc.NEW_PASSWORD), reference['password'])
 
-    @allure.step('Получение статуса обводки поля ввода "Пароль"')
+    @allure.title('Статуса подсветки границ поля "Пароль"')
     def stroke_password_field_check(self):
         if self.visibility_of_element(By.XPATH, RenLoc.ACTIVE_PASSWORD):
             return True
 
-    @allure.step('Получение статуса поля ввода "Пароль"')
+    @allure.title('Статуса поля ввода "Пароль"')
     def active_password_field_check(self):
         if self.visibility_of_element(By.XPATH, RenLoc.ACTIVE_PASSWORD):
             return True
 
-    @allure.step('прекод для "Показать/скрыть"')
+    @allure.title('Прекод для "Показать/скрыть"')
     def precondition_for_show_hide_button(self, reference):
         self.open_forgot_password_page()
         self.input_email(reference)

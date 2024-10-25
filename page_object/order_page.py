@@ -19,16 +19,21 @@ class OrderListPage(BasePage):
                 return True
         return True
 
-    @allure.step('Открытия окна заказа')
+    @allure.title('Открыть окно заказа')
     def order_window_check(self):
         return self.presence_check((By.XPATH, OrdLoc.COMPOUND)).is_displayed()
 
-    @allure.step('Получение количества заказов за сегодня')
+    @allure.title('Получить количество заказов за сегодня')
     def get_total_count_today(self):
         self.visibility_of_element(By.XPATH, OrdLoc.COUNT_TODAY)
         return self.wait_get_text((By.XPATH, OrdLoc.COUNT_TODAY))
 
-    @allure.step('Получение количества заказов за все время')
-    def get_total_count_today(self):
-        self.visibility_of_element(By.XPATH, OrdLoc.ALL_COUNT)
-        return self.wait_get_text((By.XPATH, OrdLoc.ALL_COUNT))
+    @allure.title("Получить общее кол-во заказов за всё время")
+    def get_total_orders_count(self):
+        self.visibility_of_element(By.XPATH, OrdLoc.COUNT_TOTAL)
+        return self.wait_get_text((By.XPATH, OrdLoc.COUNT_TOTAL))
+
+    @allure.title("Получение ID последнего оформленного заказа")
+    def get_order_id(self):
+        order_text = self.visibility_of_element(By.XPATH, OrdLoc.ORDER_INFO).text
+        return order_text.split('#')[-1].strip()

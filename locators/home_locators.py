@@ -14,3 +14,4 @@ class HomeLocator:
     INGREDIENT_WINDOW_LOGO = '//*[text() = "Детали ингредиента"]'
     INGREDIENT_COUNTER = './/p[contains(@class, "counter_counter")]'
     ORDERS_PACK = '//li[2][contains(@class, "BurgerConstructor_basket__listItem")]'
+    ORDER_NUMBER_IN_PROGRESS =  "//p[contains(text(), '№')]"

@@ -13,27 +13,24 @@ class HomePage(BasePage):
         self.open_page(Data.URL + Data.REGISTER)
 
     @allure.title('Переход на главную страницу')
-    def open_main_page(self):
+    def open_home_page(self):
         self.open_page(Data.URL)
 
     @allure.title('Переход после нажатия на кнопку "Лента Заказов"')
-    def order_list_title_check(self):
+    def check_order_list(self):
         return self.exist_check((By.XPATH, OrdLoc.ORDER_PAGE_LOGO))
 
     @allure.title('Переход после нажатия на кнопку "Конструктор"')
-    def title_constructor_check(self):
+    def constructor_check(self):
         return self.exist_check((By.XPATH, HomLoc.CONSTRUCTOR_LOGO))
 
     @allure.title('Преход в окно ингредиента')
     def clickable_order_button_check(self):
-        if self.element_clickable(By.XPATH, HomLoc.ORDER_LIST_BUTTON):
-            return True
-        else:
-            return False
+        return self.element_clickable((By.XPATH, HomLoc.INGREDIENT_WINDOW_LOGO)) is not None
 
     @allure.title('Предусловие: открытие главной страницы, открытие окна ингредиента')
     def precondition_for_closing_window(self):
-        self.open_main_page()
+        self.open_home_page()
         self.click_element_if_clickable((By.XPATH, HomLoc.F_BUN_BUTTON))
 
     @allure.title('Получить значения счетчика ингредиента')

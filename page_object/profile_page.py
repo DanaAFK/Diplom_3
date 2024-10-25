@@ -9,12 +9,12 @@ from selenium.webdriver.common.by import By
 
 class ProfilePage(BasePage):
 
-    @allure.step('Проверка наличия элементов на открытой странице')
+    @allure.title('Проверка наличия элементов на открытой странице')
     def open_page_check(self):
         self.visibility_of_element(By.XPATH, ProfLoc.ACCOUNT_BUTTON)
         return self.exist_check((By.XPATH, ProfLoc.ACCOUNT_BUTTON))
 
-    @allure.step('Открытие страницы "История заказов"')
+    @allure.title('Открытие страницы "История заказов"')
     def open_history_page(self):
         self.visibility_of_element(By.XPATH, ProfLoc.HISTORY_BUTTON)
         history_button = self.visibility_of_element(By.XPATH, ProfLoc.HISTORY_BUTTON)
@@ -24,7 +24,7 @@ class ProfilePage(BasePage):
         else:
             return False
 
-    @allure.step("Проверка наличия идентификатора заказа в истории")
+    @allure.title("Проверка наличия идентификатора заказа в истории")
     def found_order_at_history(self, order_id):
         elements = self.wait_all_elements((By.XPATH, ProfLoc.ORDERS_HISTORY))
         for element in elements:
@@ -32,7 +32,7 @@ class ProfilePage(BasePage):
                 return True
         return True
 
-    @allure.step('Нажатие кнопки "Выход" с проверкой выхода')
+    @allure.title('Нажатие кнопки "Выход" с проверкой выхода')
     def exit(self):
         exit_button = self.visibility_of_element(By.XPATH, ProfLoc.EXIT_BUTTON)
         self.driver.execute_script('arguments[0].click();', exit_button)
@@ -42,7 +42,7 @@ class ProfilePage(BasePage):
         else:
             return False
 
-    @allure.step('Авторизация')
+    @allure.title('Авторизация')
     def authorization(self, reference):
         name = reference['name']
         password = reference['password']
@@ -60,6 +60,7 @@ class ProfilePage(BasePage):
         self.click_element_if_clickable((By.XPATH, LogLoc.LOG_BUTTON))
         self.visibility_not_of_element(By.XPATH, LogLoc.LOG_BUTTON)
 
+    @allure.title('Прекод')
     def precondition_for_tests(self, reference):
         self.authorization(reference)
         self.click_element_if_clickable((By.XPATH, ProfLoc.ACCOUNT_BUTTON))

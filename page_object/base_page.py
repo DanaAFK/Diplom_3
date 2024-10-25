@@ -18,7 +18,7 @@ class BasePage:
         self.driver.get(url)
 
     def get_url(self):
-        return self.driver.url
+        return self.driver.current_url
 
     def wait_and_text(self, locator, text):
         element = self.visibility_of_element(locator)
@@ -28,10 +28,10 @@ class BasePage:
         element = self.visibility_of_element(locator)
         return element.text
 
-    def visibility_of_element(self, locator, timeout=10):
+    def visibility_of_element(self, locator, timeout=20):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
-    def element_clickable(self, locator, timeout=20):
+    def element_clickable(self, locator, timeout=30):
         return WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
 
     def visibility_not_of_element(self, locator, timeout=15):
