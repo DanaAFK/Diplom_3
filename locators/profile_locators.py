@@ -1,10 +1,13 @@
+from selenium.webdriver.common.by import By
+
+
 class ProfileLocators:
 
-    ORDERS_HISTORY = "//div[contains(@class, 'OrderHistory_textBox')]/p[contains(@class,'text_type_digits-default')]"
+    HISTORY_OF_ORDER = (By.XPATH, "//div[contains(@class, 'OrderHistory_orderHistory__')]")
+    HISTORY_BUTTON = (By.XPATH, '//*[@href = "/account/order-history"]')
+    ACCOUNT_BUTTON = (By.XPATH, '//*[@href = "/account"]')
+    ACCOUNT_PROFILE_BUTTON = (By.XPATH, '//*[@href="/account/profile"]')
 
-    HISTORY_BUTTON = '//*[@href="/account/order-history"]'
-    ACCOUNT_BUTTON = '//*[@href = "/account"]'
-    ACCOUNT_PROFILE_BUTTON = '//*[@href="/account/profile"]'
-    EXIT_BUTTON = '//*[@href="/account/order-history"]/following::*[@type="button"][1]'
+    EXIT_BUTTON = (By.XPATH, '//*[@href="/account/order-history"]/following::*[@type="button"][1]')
 
 

@@ -1,17 +1,19 @@
+from selenium.webdriver.common.by import By
+
+
 class HomeLocator:
 
-    GO_ACC_BUTTON = '//*[text() = "Войти в аккаунт"]'
+    CONSTRUCTOR_LOGO = (By.XPATH, '//*[text() = "Соберите бургер"]')
+    INGREDIENT_WINDOW_LOGO = (By.XPATH, '//*[text() = "Детали ингредиента"]')
 
-    CONSTRUCTOR_BUTTON = '//*[text() = "Конструктор"]'
-    ORDER_LIST_BUTTON = '//p[contains(.,"Лента Заказов")]'
-    F_BUN_BUTTON = '//img[@alt="Флюоресцентная булка R2-D3"]'
-    ORDER_BUTTON = '//*[text()="Оформить заказ"]'
-    CLOSE_BUTTON = '//button[contains(@class,"close")]'
+    CONSTRUCTOR_BUTTON = (By.XPATH, '//*[text() = "Конструктор"]')
+    LIST_OF_ORDER_BUTTON = (By.XPATH, '//p[contains(.,"Лента Заказов")]')
+    ORDER_BUTTON = (By.XPATH, '//*[text()="Оформить заказ"]')
+    F_BUN_BUTTON = (By.XPATH, '//img[@alt="Флюоресцентная булка R2-D3"]')
+    CLOSE_BUTTON = (By.XPATH, '//button[contains(@class,"close")]')
 
-    CONSTRUCTOR_LOGO = '//*[text() = "Соберите бургер"]'
-    ORDER_ID_TEXT = '//p[text()="идентификатор заказа"]'
-    ORDER_ID = '//h2[contains(@class, "Modal_modal__title_shadow")]'
-    INGREDIENT_WINDOW_LOGO = '//*[text() = "Детали ингредиента"]'
-    INGREDIENT_COUNTER = './/p[contains(@class, "counter_counter")]'
-    ORDERS_PACK = '//li[2][contains(@class, "BurgerConstructor_basket__listItem")]'
-    ORDER_NUMBER_IN_PROGRESS =  "//p[contains(text(), '№')]"
+    ID_TEXT = (By.XPATH, '//p[text()="идентификатор заказа"]')
+    ORDER_ID = (By.XPATH, '//h2[contains(@class, "Modal_modal__title_shadow")]')
+
+    COUNTER_INGREDIENTS = (By.XPATH, './/p[contains(@class, "counter_counter")]')
+    PACK = (By.XPATH, '//li[2][contains(@class, "BurgerConstructor_basket__listItem")]')

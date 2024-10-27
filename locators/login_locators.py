@@ -1,13 +1,17 @@
-class LoginLocator:
+from selenium.webdriver.common.by import By
 
-    RESTORE_PASSWORD_BUTTON = '//*[text() = "Восстановить пароль"]'
 
-    NAME_REG = '//*[text()="Регистрация"]/following::*[@name = "name"][1]'
-    EMAIL_REG = '//*[text()="Регистрация"]/following::*[@name = "name"][2]'
-    PASSWORD_REG = "//*[@name  = \"Пароль\"]"
+class LoginLocators:
 
-    LOG_BUTTON =  '//button[text() = "Войти"]'
+    RENEW_PASSWORD_BUTTON = (By.XPATH, '//*[text() = "Восстановить пароль"]')
+    GO = (By.XPATH, '//button[text()="Войти"]')
+    REG_BUTTON = (By.XPATH, '//button[text()="Зарегистрироваться"]')
 
-    REG_BUTTON = '//button[text() = "Зарегистрироваться"]'
-    EMAIL_LOGIN = '//*[@name = "name"]'
-    PASSWORD_LOGIN = '//*[@name = "Пароль"]'
+    EMAIL_LOGIN = (By.XPATH, '//*[@name = "name"]')
+    EMAIL_LOGIN_2 = (By.XPATH, '//input[@name="name" and contains(@class, "input_textfield")]')
+    PASSWORD_LOGIN = (By.XPATH, '//*[@name = "Пароль"]')
+
+    NAME_REG = (By.XPATH, '//*[text()="Регистрация"]//following::*[@name="name"][1]')
+    EMAIL_REG = (By.XPATH, '//*[text()="Регистрация"]/following::*[@name="name"][2]')
+    PASSWORD_REG = (By.XPATH, '//input[@name="Пароль" and @type="password"]')
+

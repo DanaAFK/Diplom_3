@@ -1,3 +1,7 @@
+import random
+import string
+
+
 class Data:
     URL = 'https://stellarburgers.nomoreparties.site'
 
@@ -7,5 +11,7 @@ class Data:
     FORGOT_PASSWORD = '/forgot-password'
     LIST_PAGE = '/feed'
     REGISTER = '/register'
+
+
 
     
